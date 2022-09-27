@@ -19,7 +19,7 @@ const Home = () => {
       </IonHeader>
       <IonContent className="ion-padding" color="bg">
         <section className="date-time-holder"></section>
-        <HabitList />
+        <HabitList title="Drink Water" unit="300ml" percentageDone={70} />
       </IonContent>
     </PageHome>
   );

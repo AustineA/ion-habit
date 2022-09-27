@@ -2,26 +2,26 @@ import { IonLabel, IonRange } from "@ionic/react";
 import { useState } from "react";
 import styled from "styled-components";
 
-const HabitList = () => {
+const HabitList = ({ title, unit, percentageDone }: any) => {
   const [bgColor, setBg] = useState("#36C2E3");
 
   return (
     <List>
       <div>
         <div className="habit-title-holder">
-          <IonLabel>Drink Water</IonLabel>
-          <span className="habit-unit">300ml</span>
+          <IonLabel>{title}</IonLabel>
+          <span className="habit-unit">{unit}</span>
         </div>
 
         <div className="habit-range-holder">
           <div className="habit-range">
             <Range
               disabled={true}
-              value={70}
+              value={percentageDone}
               style={{ "--bar-background-active": bgColor }}
             />
           </div>
-          <span className="habit-done"> 70% Done</span>
+          <span className="habit-done"> {percentageDone}% Done</span>
         </div>
       </div>
     </List>
@@ -67,7 +67,7 @@ const List = styled.section`
   }
   .habit-done {
     /* width: 20%; */
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-align: right;
   }
 `;
