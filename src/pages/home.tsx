@@ -1,13 +1,17 @@
 import {
+  IonButton,
+  IonButtons,
   IonContent,
   IonHeader,
-  IonLabel,
+  IonIcon,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import styled from "styled-components";
 import HabitList from "../components/HabitList";
+import { habits } from "../services/data";
+import { ellipse, square, triangle, addCircleOutline } from "ionicons/icons";
 
 const Home = () => {
   return (
@@ -19,7 +23,23 @@ const Home = () => {
       </IonHeader>
       <IonContent className="ion-padding" color="bg">
         <section className="date-time-holder"></section>
-        <HabitList title="Drink Water" unit="300ml" percentageDone={70} />
+
+        {habits.map((habit) => (
+          <HabitList
+            title={habit.title}
+            unit={habit.unit}
+            percentageDone={habit.percentageDone}
+            bgColor={habit.color}
+            key={habit.id}
+            id={habit.id}
+          />
+        ))}
+
+        <Buttons>
+          <IonButton>
+            <IonIcon icon={addCircleOutline}></IonIcon> New Habit
+          </IonButton>
+        </Buttons>
       </IonContent>
     </PageHome>
   );
@@ -34,4 +54,10 @@ const PageHome = styled(IonPage)`
     background: var(--ion-color-bg-200);
     border-radius: 0.938rem;
   }
+`;
+
+const Buttons = styled(IonButtons)`
+  margin-top: 1.5rem;
+  text-align: center;
+  display: block;
 `;

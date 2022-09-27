@@ -1,12 +1,16 @@
 import { IonLabel, IonRange } from "@ionic/react";
-import { useState } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
-const HabitList = ({ title, unit, percentageDone }: any) => {
-  const [bgColor, setBg] = useState("#36C2E3");
+const HabitList = ({ title, unit, percentageDone, bgColor, id }: any) => {
+  const history = useHistory();
 
   return (
-    <List>
+    <List
+      onClick={() => {
+        history.push(`/details/${id}`);
+      }}
+    >
       <div>
         <div className="habit-title-holder">
           <IonLabel>{title}</IonLabel>
@@ -38,6 +42,7 @@ const List = styled.section`
   justify-content: center;
   align-items: center;
   padding: 0.938rem;
+  margin-bottom: 0.938rem;
 
   & > div {
     height: 100%;
