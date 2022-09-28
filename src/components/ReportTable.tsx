@@ -49,7 +49,7 @@ const Week = styled.div`
   .cell {
     color: #a1a1a1;
     padding: 10px;
-    font-size: 12px;
+    /* font-size: 12px; */
     width: 25px;
     height: 25px;
     display: flex;

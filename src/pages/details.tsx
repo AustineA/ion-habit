@@ -10,15 +10,20 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import CircularProgress from "../components/CircularProgress";
+import { useEffect, useState } from "react";
 
 const Details = ({ match }: any) => {
   const history: any = useHistory();
-  const { title, unit, percentageDone, color, id, total, done } =
-    history?.location?.state?.habit;
+  const [habit, setHabit] = useState({});
+  const { title, unit, percentageDone, color, id, total, done }: any = habit;
+
+  useEffect(() => {
+    setHabit(history?.location?.state?.habit);
+    return () => {};
+  }, [match]);
 
   return (
     <DetailsPage color={color}>

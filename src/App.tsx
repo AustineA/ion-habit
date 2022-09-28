@@ -10,12 +10,11 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { ellipse, square, triangle } from "ionicons/icons";
-import Tab2 from "./pages/Tab2";
-import Tab3 from "./pages/Tab3";
+import { home, statsChart } from "ionicons/icons";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Report from "./pages/Report";
+import Test from "./pages/Test";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -45,36 +44,24 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
+          <Route exact path="/home" component={Home} />
+          <Redirect exact from="/" to="/home" />
+          <Route exact path="/test" component={Test} />
+          <Route exact path="/details/:id" component={Details} />
+          <Route exact path="/report" component={Report} />
         </IonRouterOutlet>
+
         <IonTabBar slot="bottom" color="bg">
           <IonTabButton tab="home" href="/home">
-            <IonIcon icon={triangle} />
+            <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="report" href="/report">
+            <IonIcon icon={statsChart} />
+            <IonLabel>Report</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
-      <Route exact path="/details/:id" component={Details} />
-      <Route exact path="/report" component={Report} />
     </IonReactRouter>
   </IonApp>
 );

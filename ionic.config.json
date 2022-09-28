@@ -1,5 +1,7 @@
 {
   "name": "ion-habit",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
