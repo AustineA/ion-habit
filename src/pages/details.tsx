@@ -4,13 +4,15 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { addOutline } from "ionicons/icons";
 
 import { useHistory } from "react-router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import CircularProgress from "../components/CircularProgress";
 
 const Details = ({ match }: any) => {
@@ -19,7 +21,7 @@ const Details = ({ match }: any) => {
     history?.location?.state?.habit;
 
   return (
-    <DetailsPage>
+    <DetailsPage color={color}>
       <IonHeader className="ion-no-border">
         <IonToolbar color="bg">
           <IonTitle>{title}</IonTitle>
@@ -51,6 +53,13 @@ const Details = ({ match }: any) => {
             </div>
           </div>
         </section>
+        <div className="actions">
+          <IonButtons>
+            <IonButton className="add-habit" expand="block">
+              <IonIcon icon={addOutline}></IonIcon>
+            </IonButton>
+          </IonButtons>
+        </div>
       </IonContent>
     </DetailsPage>
   );
@@ -101,5 +110,20 @@ const DetailsPage = styled(IonPage)`
 
   .total {
     opacity: 0.5;
+  }
+
+  .actions {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+  }
+
+  .add-habit {
+    --border-radius: 50px !important;
+    --background: ${(props) => props.color};
+    color: #181818;
+    height: 50px;
+    width: 50px;
   }
 `;
