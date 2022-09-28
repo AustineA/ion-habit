@@ -13,8 +13,8 @@ import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
-import Home from "./pages/home";
-import Details from "./pages/details";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";

@@ -12,7 +12,7 @@ import {
 import { addOutline } from "ionicons/icons";
 
 import { useHistory } from "react-router";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import CircularProgress from "../components/CircularProgress";
 
 const Details = ({ match }: any) => {

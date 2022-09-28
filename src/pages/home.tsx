@@ -12,6 +12,7 @@ import styled from "styled-components";
 import HabitList from "../components/HabitList";
 import { habits } from "../services/data";
 import { ellipse, square, triangle, addCircleOutline } from "ionicons/icons";
+import Calendar from "../components/Calendar";
 
 const Home = () => {
   return (
@@ -22,7 +23,9 @@ const Home = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding" color="bg">
-        <section className="date-time-holder"></section>
+        <section className="date-time-holder ">
+          <Calendar date={new Date()} />
+        </section>
 
         {habits.map((habit) => (
           <HabitList
@@ -58,6 +61,9 @@ const PageHome = styled(IonPage)`
     min-height: 6.25rem;
     background: var(--ion-color-bg-200);
     border-radius: 0.938rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
