@@ -14,7 +14,6 @@ import { home, statsChart } from "ionicons/icons";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Report from "./pages/Report";
-import Test from "./pages/Test";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -46,7 +45,6 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Route exact path="/home" component={Home} />
           <Redirect exact from="/" to="/home" />
-          <Route exact path="/test" component={Test} />
           <Route exact path="/details/:id" component={Details} />
           <Route exact path="/report" component={Report} />
         </IonRouterOutlet>
