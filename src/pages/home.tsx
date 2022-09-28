@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import HabitList from "../components/HabitList";
 import { habits } from "../services/data";
-import { ellipse, square, triangle, addCircleOutline } from "ionicons/icons";
+import { addCircleOutline } from "ionicons/icons";
 import Calendar from "../components/Calendar";
 
 const Home = () => {

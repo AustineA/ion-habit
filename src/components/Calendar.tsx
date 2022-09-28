@@ -1,11 +1,4 @@
-import {
-  differenceInDays,
-  endOfMonth,
-  endOfWeek,
-  isToday,
-  startOfMonth,
-  startOfWeek,
-} from "date-fns";
+import { differenceInDays, endOfMonth, endOfWeek, startOfWeek } from "date-fns";
 import styled from "styled-components";
 
 const Calendar = ({ date }: any) => {
@@ -17,10 +10,9 @@ const Calendar = ({ date }: any) => {
   const today = date.getDate();
 
   const sufix = 6 - differenceInDays(endMonth, startDate);
-  console.log(today);
 
   return (
-    <Month>
+    <Week>
       {daysOfWeek.map((day) => (
         <div className="cell" key={day}>
           {day}
@@ -45,18 +37,18 @@ const Calendar = ({ date }: any) => {
         const date = 1 + index;
 
         return (
-          <div className={`date ${date == today ? "today" : ""}`} key={index}>
+          <div className={`date ${date === today ? "today" : ""}`} key={index}>
             {date}
           </div>
         );
       })}
-    </Month>
+    </Week>
   );
 };
 
 export default Calendar;
 
-const Month = styled.div`
+const Week = styled.div`
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   place-items: center;
