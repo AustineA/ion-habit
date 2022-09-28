@@ -2,19 +2,28 @@ import { IonLabel, IonRange } from "@ionic/react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 
-const HabitList = ({ title, unit, percentageDone, bgColor, id }: any) => {
+const HabitList = ({
+  habit: { title, unit, percentageDone, color, id, total },
+  habit,
+}: any) => {
   const history = useHistory();
 
   return (
     <List
       onClick={() => {
-        history.push(`/details/${id}`);
+        history.push({
+          pathname: `/details/${id}`,
+          state: { habit },
+        });
       }}
     >
       <div>
         <div className="habit-title-holder">
           <IonLabel>{title}</IonLabel>
-          <span className="habit-unit">{unit}</span>
+          <span className="habit-unit">
+            {total}
+            {unit}
+          </span>
         </div>
 
         <div className="habit-range-holder">
@@ -22,7 +31,8 @@ const HabitList = ({ title, unit, percentageDone, bgColor, id }: any) => {
             <Range
               disabled={true}
               value={percentageDone}
-              style={{ "--bar-background-active": bgColor }}
+              style={{ "--bar-background-active": color }}
+              mode="ios"
             />
           </div>
           <span className="habit-done"> {percentageDone}% Done</span>
@@ -34,7 +44,7 @@ const HabitList = ({ title, unit, percentageDone, bgColor, id }: any) => {
 
 export default HabitList;
 
-const List = styled.section`
+const List = styled.div`
   min-height: 4.688rem;
   background: var(--ion-color-bg-200);
   border-radius: 0.938rem;

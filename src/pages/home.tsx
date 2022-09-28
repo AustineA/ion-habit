@@ -31,13 +31,18 @@ const Home = () => {
             percentageDone={habit.percentageDone}
             bgColor={habit.color}
             key={habit.id}
+            habit={habit}
             id={habit.id}
           />
         ))}
 
         <Buttons>
-          <IonButton>
-            <IonIcon icon={addCircleOutline}></IonIcon> New Habit
+          <IonButton mode="ios">
+            <IonIcon
+              icon={addCircleOutline}
+              style={{ marginRight: 5 }}
+            ></IonIcon>{" "}
+            New Habit
           </IonButton>
         </Buttons>
       </IonContent>
