@@ -9,19 +9,20 @@ const ReportTable = ({ reports }: any) => {
       <Container>
         <Title></Title>
         <Week>
-          {daysOfWeek.map((day) => (
-            <div className="cell" key={day}>
+          {daysOfWeek.map((day, index) => (
+            <div className="cell" key={index}>
               {day}
             </div>
           ))}
         </Week>
       </Container>
 
-      {reports.map((report: any) => (
+      {reports.map((report: any, index: any) => (
         <ReportItem
           color={report.color}
           title={report.title}
           frequency={report.frequency}
+          key={index}
         />
       ))}
     </>
