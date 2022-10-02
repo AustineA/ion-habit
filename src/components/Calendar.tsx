@@ -10,6 +10,7 @@ const Calendar = ({ date }: any) => {
   const today = date.getDate();
 
   const sufix = 6 - differenceInDays(endMonth, startDate);
+  const weekLength = numDays - sufix;
 
   return (
     <Week>
@@ -19,19 +20,21 @@ const Calendar = ({ date }: any) => {
         </div>
       ))}
 
-      {Array.from({ length: numDays - sufix }).map((_, index) => {
-        const date = startDate.getDate() + index;
+      {Array.from({ length: weekLength > 7 ? 7 : weekLength }).map(
+        (_, index) => {
+          const date = startDate.getDate() + index;
 
-        return (
-          <div
-            className={`date ${date == today ? "today" : ""}`}
-            key={index}
-            style={{}}
-          >
-            {date}
-          </div>
-        );
-      })}
+          return (
+            <div
+              className={`date ${date == today ? "today" : ""}`}
+              key={index}
+              style={{}}
+            >
+              {date}
+            </div>
+          );
+        }
+      )}
 
       {Array.from({ length: sufix }).map((_, index) => {
         const date = 1 + index;

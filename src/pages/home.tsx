@@ -24,6 +24,7 @@ const Home = () => {
       </IonHeader>
       <IonContent className="ion-padding" color="bg">
         <section className="date-time-holder ">
+          {/* <Calendar date={new Date("2022-02-27")} /> */}
           <Calendar date={new Date()} />
         </section>
 
